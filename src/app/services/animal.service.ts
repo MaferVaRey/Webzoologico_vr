@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders  } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -12,5 +12,12 @@ export class AnimalService {
   getAllAnimalsData(): Observable<any> {
     return this.http.get<any>(this.apiUri)
   }
-    
+  newAnimal(data: any): Observable<any> {
+    return this.http.post<any>(
+      this.apiUri,
+      data,
+      { headers: this.httpOptions });
+  }
+
+
 }
